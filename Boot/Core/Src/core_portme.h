@@ -17,7 +17,12 @@ Original Author: Shay Gal-on
 */
 
 #define ITERATIONS 32000    // 这个值需要保证能够运行至少10秒，可以先写一个值，运行不足10秒会报错，再回来修改
-#define FLAGS_STR "-Ofast" // 这个值根据实际的编译优化选项进行填写，在最终输出种原样输出，实际上只要是字符串就行，无关紧要
+// #define ITERATIONS 4000    // 这个值需要保证能够运行至少10秒，可以先写一个值，运行不足10秒会报错，再回来修改
+// #define ITERATIONS 4500    // 这个值需要保证能够运行至少10秒，可以先写一个值，运行不足10秒会报错，再回来修改
+// #define ITERATIONS 1600    // 这个值需要保证能够运行至少10秒，可以先写一个值，运行不足10秒会报错，再回来修改
+// #define ITERATIONS 3200    // 这个值需要保证能够运行至少10秒，可以先写一个值，运行不足10秒会报错，再回来修改
+// #define ITERATIONS 6400    // 这个值需要保证能够运行至少10秒，可以先写一个值，运行不足10秒会报错，再回来修改
+#define FLAGS_STR "-Ofast" // 这个值根据实际的编译优化选项进行填写，在最终输出种原样输出，根据实际用的编译选项修改
 #define MAIN_HAS_NOARGC 1  // coremark main不使用返回值
 #define MAIN_HAS_NORETURN 1
 

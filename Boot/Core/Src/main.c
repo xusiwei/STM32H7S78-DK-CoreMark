@@ -69,12 +69,12 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
 
-  // /* Enable the CPU Cache */
-  // /* Enable I-Cache---------------------------------------------------------*/
-  // SCB_EnableICache();
+  /* Enable the CPU Cache */
+  /* Enable I-Cache---------------------------------------------------------*/
+  SCB_EnableICache();
 
-  // /* Enable D-Cache---------------------------------------------------------*/
-  // SCB_EnableDCache();
+  /* Enable D-Cache---------------------------------------------------------*/
+  SCB_EnableDCache();
   /* USER CODE END 1 */
 
   /* MPU Configuration--------------------------------------------------------*/

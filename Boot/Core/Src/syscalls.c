@@ -82,7 +82,7 @@ __attribute__((weak)) int _write(int file, char *ptr, int len)
   (void)file;
   int DataIdx;
 
-  static int cr = 0;
+  static int cr = 0;  // 是否遇到 \r 状态
   for (DataIdx = 0; DataIdx < len; DataIdx++)
   {
     if (*ptr == '\r') {
