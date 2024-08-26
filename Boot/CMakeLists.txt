@@ -14,7 +14,7 @@ set(CMAKE_C_EXTENSIONS ON)
 
 # Define the build type
 if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE "Release")
+    set(CMAKE_BUILD_TYPE "Debug")
 endif()
 
 message("Build type: " ${CMAKE_BUILD_TYPE})
@@ -80,9 +80,9 @@ target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined libraries
 )
 
-target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
-    -Ofast
-)
+# target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
+#     -Ofast
+# )
 
 target_link_options(${CMAKE_PROJECT_NAME} PRIVATE
     -u _printf_float
