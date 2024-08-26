@@ -21,7 +21,7 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
-
+#include <stdio.h>
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart4;
@@ -135,5 +135,16 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
+#ifdef __GNUC__
+// GCC
+int __io_putchar(int ch)
+{
+  if (HAL_UART_Transmit(&huart4, (uint8_t*) &ch, 1, HAL_MAX_DELAY) != HAL_OK)
+  {
+    return -1;
+  }
+  return ch;
+}
+#endif
 
 /* USER CODE END 1 */

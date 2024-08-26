@@ -14,7 +14,7 @@ set(CMAKE_C_EXTENSIONS ON)
 
 # Define the build type
 if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE "Debug")
+    set(CMAKE_BUILD_TYPE "Release")
 endif()
 
 message("Build type: " ${CMAKE_BUILD_TYPE})
@@ -27,6 +27,7 @@ set(STM32_MCU_FLAGS  "-mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard " )
 
 #Linker options
 set(STM32_LINKER_SCRIPT stm32h7s7xx_flash.ld)
+# set(STM32_LINKER_SCRIPT stm32h7s7xx_sram.ld)
 set(STM32_LINKER_OPTION  )
 
 # Include toolchain file
@@ -61,6 +62,12 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
+    ./Core/Src/core_list_join.c
+    ./Core/Src/core_main.c
+    ./Core/Src/core_matrix.c
+    ./Core/Src/core_state.c
+    ./Core/Src/core_util.c
+    ./Core/Src/core_portme.c
 )
 
 # Link directories setup
@@ -71,6 +78,14 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add linked libraries
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined libraries
+)
+
+target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
+    -Ofast
+)
+
+target_link_options(${CMAKE_PROJECT_NAME} PRIVATE
+    -u _printf_float
 )
 
 # Validate that STM32CubeMX code is compatible with C standard
